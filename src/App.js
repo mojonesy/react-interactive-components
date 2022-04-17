@@ -1,24 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
 
 function App() {
+  const [subscribed, setSubscribed] = useState(false);
+  const [subscribedCount, setSubscribedCount] = useState(0);
+  const [alerts, setAlerts] = useState(false);
+  /* What do we pass to useState as an argument? 
+     The only argument to the useState() Hook is the initial state.
+     We can keep a number or a string if that’s all we need. 
+     In our example, we just want a number for how many times the user clicked, 
+     so pass 0 as initial state for our variable. 
+     (If we wanted to store two different values in state, we would call useState() twice.) */
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <section style={{margin:"10px"}}>
+      <h1>Interactive Components</h1>
+      <p>Click to subscribe to updates :)</p>
+      <p>Subscriber Count: {subscribedCount}</p>
+        <button
+          onClick={() => {
+            setSubscribed(!subscribed);
+            setSubscribedCount((currentCount) => currentCount + 1);
+            setSubscribedCount((currentCount) => currentCount + 1);
+            if (!alerts) setAlerts(true);
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          {subscribed? "Unsubscribe" : "Subscribe"}
+        </button>
+        <button onClick={() => setAlerts(!alerts)}>
+          {alerts? "Turn off alerts" : "Turn on alerts"}
+        </button>
+    </section>
   );
 }
 
