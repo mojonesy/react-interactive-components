@@ -10,7 +10,8 @@ function App() {
      We can keep a number or a string if that’s all we need. 
      In our example, we just want a number for how many times the user clicked, 
      so pass 0 as initial state for our variable. 
-     (If we wanted to store two different values in state, we would call useState() twice.) */
+     (If we wanted to store two different values in state, we would call useState() twice.)
+     useState() returns a pair of values: the current state and a function that updates it. */
 
 
   return (
